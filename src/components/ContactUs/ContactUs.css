@@ -1,0 +1,158 @@
+.form-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.close-btn {
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	color: #005da5;
+	cursor: pointer;
+}
+
+.error-field {
+	color: red;
+	font-size: 14px;
+	text-align: left;
+	padding-left: 1rem;
+}
+
+.input-container {
+	position: relative;
+	width: 100%;
+}
+
+.label {
+	position: absolute;
+	top: 5px;
+	left: 18px;
+	font-size: 12px;
+	color: #919191;
+}
+
+.sub-wrapper {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	background-color: #fafafa;
+	padding-top: 2rem;
+	padding-bottom: 1rem;
+	border-bottom: 2px solid #edeeef;
+}
+
+@media (max-width: 768px) {
+	.sub-wrapper {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+}
+
+.input {
+	width: 100%;
+
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: white;
+	border: 2px solid #edeeef;
+	padding-top: 1.3rem;
+	padding-bottom: 0.7rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	margin-bottom: 1rem;
+	border-radius: 4px;
+	/* outline: 1px solid #919196; */
+}
+
+.input:focus {
+	outline: 1px solid #919196;
+}
+
+.recaptcha {
+	margin-top: 1rem;
+}
+
+.buttons {
+	padding-right: 2.5rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	align-self: flex-end;
+	background-color: white;
+}
+
+@media (max-width: 768px) {
+	.buttons {
+		margin: auto;
+		padding-right: 0px;
+		width: 90%;
+		display: flex;
+		flex-direction: column;
+		margin: auto;
+		margin-bottom: 2rem;
+		align-self: center;
+	}
+}
+
+.header {
+	background-color: white;
+	border-bottom: 2px solid #edeeef;
+	padding-top: 1.5rem;
+	padding-bottom: 1rem;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.submit-btn {
+	background-color: #005da5;
+	color: white;
+	padding-top: 0.7rem;
+	padding-bottom: 0.7rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	font-weight: bold;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	letter-spacing: 1px;
+}
+.submit-btn-disabled {
+	opacity: 0.5;
+	background-color: #005da5;
+	color: white;
+	padding-top: 0.7rem;
+	padding-bottom: 0.7rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	font-weight: bold;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	letter-spacing: 1px;
+}
+
+.cancel-btn {
+	background-color: white;
+	color: #005da5;
+	padding-top: 0.7rem;
+	padding-bottom: 0.7rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	font-weight: bold;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	letter-spacing: 1px;
+}
+
+#the-count {
+	color: #cccecf;
+	text-align: right;
+	padding: 0;
+	font-size: 0.875rem;
+}
