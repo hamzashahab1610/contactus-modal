@@ -134,7 +134,6 @@ function ContactUs({ closeModal }) {
 						onChange={onChange}
 					/>
 				</div>
-				,
 			</div>
 			<div className="buttons">
 				<button type="reset" className="cancel-btn">

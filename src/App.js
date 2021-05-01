@@ -18,7 +18,8 @@ function App() {
 			transform: "translate(-50%, -50%)",
 			padding: "0px",
 			borderRadius: "0px",
-			width: isTabletOrMobile ? "" : "700px",
+			width: isTabletOrMobile ? "100%" : "700px",
+			height: isTabletOrMobile ? "100%" : "",
 		},
 	};
 
@@ -37,9 +38,11 @@ function App() {
 
 	return (
 		<div className="App">
-			<button className="open-model-btn" onClick={openModal}>
-				Open Modal
-			</button>
+			{!modalIsOpen && (
+				<button className="open-model-btn" onClick={openModal}>
+					Open Modal
+				</button>
+			)}
 			<Modal
 				isOpen={modalIsOpen}
 				onAfterOpen={afterOpenModal}
