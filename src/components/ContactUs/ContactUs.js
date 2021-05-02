@@ -26,6 +26,8 @@ function ContactUs({ closeModal }) {
 			captcha
 		) {
 			setisSubmitEnabled(true);
+		} else {
+			setisSubmitEnabled(false);
 		}
 	});
 
@@ -53,36 +55,10 @@ function ContactUs({ closeModal }) {
 		}
 	};
 
-	const phoneMaks = (e) => {
-		var text = e.target.value;
-
-		var result = [];
-		text = text.replace(/[^\d]/g, "");
-		while (text.length >= 6) {
-			result.push(text.substring(0, 3));
-			text = text.substring(3);
-		}
-		if (text.length > 0) result.push(text);
-		return result.join("-");
-
-		// if (x.length === 3) {
-		// 	x = x + "-";
-		// }
-
-		// if (x.length === 7) {
-		// 	x = x + "-";
-		// }
-		// if (x) x.match(/\d{3}(?=\d{2,3})|\d+/g).join("-");
-
-		setPhone(text);
-	};
-
 	const submitHandler = () => {
 		// validateEmail(email);
 		// validatePhone(phone);
 	};
-
-	console.log(isphoneValid);
 
 	return (
 		<form onSubmit={submitHandler} className="form-container">
