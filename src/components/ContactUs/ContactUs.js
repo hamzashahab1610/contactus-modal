@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./ContactUs.css";
 import ReCAPTCHA from "react-google-recaptcha";
+import Error from "../../assets/error.svg";
+import { useMediaQuery } from "react-responsive";
 
 function ContactUs({ closeModal }) {
+	const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
+	const submitText = isTabletOrMobile ? "GET A LOAN" : "SUBMIT";
+
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [phone, setPhone] = useState("");
 	const [message, setMessage] = useState("");
 	const [captcha, setCaptcha] = useState();
-	const [isEmailValid, setisEmailValid] = useState(false);
-	const [isphoneValid, setisphoneValid] = useState(false);
+	const [emailError, setEmailError] = useState("");
+	const [phoneError, setPhoneError] = useState("");
+	const [msgError, setMsgError] = useState("");
 	const [isSubmitEnabled, setisSubmitEnabled] = useState(false);
 
 	function onChange(value) {
@@ -37,9 +44,9 @@ function ContactUs({ closeModal }) {
 		);
 
 		if (!pattern.test(email)) {
-			setisEmailValid(false);
+			setEmailError("Review your email format.");
 		} else {
-			setisEmailValid(true);
+			setEmailError("");
 		}
 	};
 
@@ -49,19 +56,31 @@ function ContactUs({ closeModal }) {
 		);
 
 		if (!pattern.test(phone)) {
-			setisphoneValid(false);
+			setPhoneError("Review your phone format.");
 		} else {
-			setisphoneValid(true);
+			setPhoneError("");
 		}
 	};
 
-	const submitHandler = () => {
-		// validateEmail(email);
-		// validatePhone(phone);
+	const validateMessage = (msg) => {
+		if (msg.length > 240) {
+			setMsgError(
+				"Your max your character count, please shorten your message.",
+			);
+		} else {
+			setMsgError("");
+		}
+	};
+
+	const submitHandler = (e) => {
+		e.preventDefault();
+		validateEmail(email);
+		validatePhone(phone);
+		validateMessage(message);
 	};
 
 	return (
-		<form onSubmit={submitHandler} className="form-container">
+		<div className="form-container">
 			<div className="close-btn" onClick={closeModal}>
 				<i class="fas fa-times"></i>
 			</div>
@@ -88,13 +107,21 @@ function ContactUs({ closeModal }) {
 						</label>
 					)}
 					<input
-						type="text"
-						pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+						type="tel"
+						// pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
 						className="input"
 						placeholder="Enter Phone Number"
 						value={phone}
+						style={{
+							borderColor: phoneError !== "" ? "red" : "#edeeef",
+						}}
 						onChange={(e) => setPhone(e.target.value)}
 					/>
+					{phoneError !== "" && (
+						<div className="error-msg">
+							<img src={Error} alt="" /> {phoneError}
+						</div>
+					)}
 				</div>
 				<div className="input-container">
 					{email !== "" && (
@@ -105,10 +132,18 @@ function ContactUs({ closeModal }) {
 					<input
 						className="input"
 						placeholder="Enter Email"
-						pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+						// pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
+						style={{
+							borderColor: emailError !== "" ? "red" : "#edeeef",
+						}}
 					/>
+					{emailError !== "" && (
+						<div className="error-msg">
+							<img src={Error} alt="" /> {emailError}
+						</div>
+					)}
 				</div>
 				<div className="input-container">
 					{message !== "" && (
@@ -119,10 +154,18 @@ function ContactUs({ closeModal }) {
 					<textarea
 						className="text-area"
 						placeholder="Enter your Message"
-						maxlength="240"
+						// maxlength="240"
 						value={message}
 						onChange={(e) => setMessage(e.target.value)}
+						style={{
+							borderColor: msgError !== "" ? "red" : "#edeeef",
+						}}
 					/>
+					{msgError !== "" && (
+						<div className="error-msg">
+							<img src={Error} alt="" /> {msgError}
+						</div>
+					)}
 				</div>
 				<div id="the-count">
 					<span id="current">{message.length}</span>
@@ -140,16 +183,17 @@ function ContactUs({ closeModal }) {
 					CANCEL
 				</button>
 				<button
-					type="submit"
+					// type="submit"
 					className={
 						isSubmitEnabled ? "submit-btn" : "submit-btn-disabled"
 					}
+					onClick={submitHandler}
 					disabled={!isSubmitEnabled}
 				>
-					SUBMIT
+					{submitText}
 				</button>
 			</div>
-		</form>
+		</div>
 	);
 }
 

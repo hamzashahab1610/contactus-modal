@@ -19,7 +19,7 @@ function App() {
 			padding: "0px",
 			borderRadius: "0px",
 			width: isTabletOrMobile ? "360px" : "710px",
-			height: isTabletOrMobile ? "697px" : "641px",
+			minHeight: isTabletOrMobile ? "697px" : "641px",
 		},
 	};
 
