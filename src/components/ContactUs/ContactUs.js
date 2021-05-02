@@ -63,7 +63,7 @@ function ContactUs({ closeModal }) {
 	};
 
 	const validateMessage = (msg) => {
-		if (msg.length > 240) {
+		if (msg.length >= 240) {
 			setMsgError(
 				"Your max your character count, please shorten your message.",
 			);
@@ -154,23 +154,27 @@ function ContactUs({ closeModal }) {
 					<textarea
 						className="text-area"
 						placeholder="Enter your Message"
-						// maxlength="240"
+						maxlength="240"
 						value={message}
-						onChange={(e) => setMessage(e.target.value)}
+						onChange={(e) => {
+							validateMessage(e.target.value);
+							setMessage(e.target.value);
+						}}
 						style={{
 							borderColor: msgError !== "" ? "red" : "#edeeef",
 						}}
 					/>
-					{msgError !== "" && (
-						<div className="error-msg">
-							<img src={Error} alt="" /> {msgError}
-						</div>
-					)}
+					<div id="the-count">
+						<span id="current">{message.length}</span>
+						<span id="maximum">/ 240</span>
+					</div>
 				</div>
-				<div id="the-count">
-					<span id="current">{message.length}</span>
-					<span id="maximum">/ 240</span>
-				</div>
+				{msgError !== "" && (
+					<div className="error-msg">
+						<img src={Error} alt="" /> {msgError}
+					</div>
+				)}
+
 				<div className="recaptcha">
 					<ReCAPTCHA
 						sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"

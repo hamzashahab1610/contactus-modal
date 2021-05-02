@@ -164,22 +164,22 @@
 }
 
 #the-count {
+	position: absolute;
+	right: 10px;
+	bottom: 30px;
 	color: #cccecf;
 	text-align: right;
-	margin-top: -3rem;
-	margin-bottom: 1rem;
-	margin-right: 1rem;
 	z-index: 1;
-	padding: 0;
 	font-size: 0.875rem;
 }
 
 @media (max-width: 768px) {
 	.sub-wrapper {
-		padding: 0;
 		border: hidden;
 		padding-left: 1rem;
 		padding-right: 1rem;
+		/* padding-bottom: 1.5rem; */
+		/* padding-top: 1.5rem; */
 	}
 
 	.buttons {
