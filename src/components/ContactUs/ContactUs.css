@@ -3,11 +3,12 @@
 	display: flex;
 	flex-direction: column;
 	text-align: center;
+	height: 100%;
 }
 
 .close-btn {
 	position: absolute;
-	top: 15px;
+	top: 20px;
 	right: 20px;
 	color: #005da5;
 	cursor: pointer;
@@ -40,21 +41,32 @@
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 	background-color: #fafafa;
-	padding-top: 2rem;
-	padding-bottom: 1rem;
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
 	border-bottom: 2px solid #edeeef;
 }
 
-@media (max-width: 768px) {
-	.sub-wrapper {
-		padding-left: 1rem;
-		padding-right: 1rem;
-	}
+.input {
+	width: 631px;
+	height: 56px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: white;
+	border: 2px solid #edeeef;
+	/* padding-top: 1.3rem;
+	padding-bottom: 0.7rem; */
+	padding-left: 1rem;
+	padding-right: 1rem;
+	margin-bottom: 1rem;
+	border-radius: 5px;
+	/* outline: 1px solid #919196; */
 }
 
-.input {
-	width: 100%;
-
+.text-area {
+	width: 631px;
+	height: 126px;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -62,11 +74,11 @@
 	background-color: white;
 	border: 2px solid #edeeef;
 	padding-top: 1.3rem;
-	padding-bottom: 0.7rem;
+	/* padding-bottom: 0.7rem; */
 	padding-left: 1rem;
 	padding-right: 1rem;
 	margin-bottom: 1rem;
-	border-radius: 4px;
+	border-radius: 5px;
 	/* outline: 1px solid #919196; */
 }
 
@@ -74,47 +86,54 @@
 	outline: 1px solid #919196;
 }
 
+.text-area:focus {
+	outline: 1px solid #919196;
+}
+
 .recaptcha {
+	display: flex;
+	width: 309px;
+	height: 74px;
 	margin-top: 1rem;
 }
 
 .buttons {
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	/* padding-top: 1rem;
+	padding-bottom: 1rem; */
 	padding-right: 2.5rem;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	align-self: flex-end;
+	text-align: end;
+	/* align-self: flex-end; */
 	background-color: white;
-}
-
-@media (max-width: 768px) {
-	.buttons {
-		margin: auto;
-		padding-right: 0px;
-		width: 90%;
-		display: flex;
-		flex-direction: column;
-		margin: auto;
-		margin-bottom: 1rem;
-		align-self: center;
-	}
+	width: 710px;
+	min-height: 71px;
 }
 
 .header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: white;
 	border-bottom: 2px solid #edeeef;
-	padding-top: 1.5rem;
-	padding-bottom: 1rem;
+	/* padding-top: 1.5rem;
+	padding-bottom: 1rem; */
 	font-size: 20px;
 	font-weight: 600;
+	min-height: 71px;
 }
 
 .submit-btn {
+	width: 120px;
+	height: 43px;
 	background-color: #005da5;
 	color: white;
-	padding-top: 0.7rem;
+	/* padding-top: 0.7rem;
 	padding-bottom: 0.7rem;
 	padding-left: 1.5rem;
-	padding-right: 1.5rem;
+	padding-right: 1.5rem; */
 	font-weight: bold;
 	border-radius: 5px;
 	outline: none;
@@ -122,13 +141,15 @@
 	letter-spacing: 1px;
 }
 .submit-btn-disabled {
+	width: 120px;
+	height: 43px;
 	opacity: 0.5;
 	background-color: #005da5;
 	color: white;
-	padding-top: 0.7rem;
+	/* padding-top: 0.7rem;
 	padding-bottom: 0.7rem;
 	padding-left: 1.5rem;
-	padding-right: 1.5rem;
+	padding-right: 1.5rem; */
 	font-weight: bold;
 	border-radius: 5px;
 	outline: none;
@@ -137,12 +158,14 @@
 }
 
 .cancel-btn {
+	width: 120px;
+	height: 43px;
 	background-color: white;
 	color: #005da5;
-	padding-top: 0.7rem;
+	/* padding-top: 0.7rem;
 	padding-bottom: 0.7rem;
 	padding-left: 1.5rem;
-	padding-right: 1.5rem;
+	padding-right: 1.5rem; */
 	font-weight: bold;
 	border-radius: 5px;
 	outline: none;
@@ -153,6 +176,85 @@
 #the-count {
 	color: #cccecf;
 	text-align: right;
+	margin-top: -3rem;
+	margin-bottom: 1rem;
+	margin-right: 1rem;
+	z-index: 1;
 	padding: 0;
 	font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+	.sub-wrapper {
+		padding: 0;
+		border: hidden;
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	.buttons {
+		margin: auto;
+		padding-right: 0px;
+		width: 90%;
+		display: flex;
+		flex-direction: column;
+		margin: auto;
+		margin-bottom: 0;
+		align-self: center;
+	}
+
+	.header {
+		background-color: white;
+		border-bottom: 2px solid #edeeef;
+		margin-bottom: 1rem;
+		padding: 0;
+		font-size: 20px;
+		font-weight: 600;
+		height: 60px;
+		border: hidden;
+	}
+
+	.input {
+		width: 330px;
+		height: 56px;
+		padding: 0;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		margin-bottom: 1rem;
+		/* outline: 1px solid #919196; */
+	}
+
+	.text-area {
+		width: 330px;
+		height: 156px;
+		padding: 0;
+		padding-left: 1rem;
+		padding-top: 1rem;
+		padding-right: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.recaptcha {
+		width: 330px;
+		justify-content: center;
+		height: 74px;
+	}
+
+	.submit-btn {
+		width: 330px;
+		min-height: 64px;
+		padding: 0;
+	}
+
+	.cancel-btn {
+		width: 330px;
+		min-height: 64px;
+		padding: 0;
+	}
+
+	.submit-btn-disabled {
+		width: 330px;
+		min-height: 64px;
+		padding: 0;
+	}
 }

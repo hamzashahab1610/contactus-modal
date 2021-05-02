@@ -18,8 +18,8 @@ function App() {
 			transform: "translate(-50%, -50%)",
 			padding: "0px",
 			borderRadius: "0px",
-			width: isTabletOrMobile ? "100%" : "700px",
-			height: isTabletOrMobile ? "100%" : "",
+			width: isTabletOrMobile ? "360px" : "710px",
+			height: isTabletOrMobile ? "697px" : "641px",
 		},
 	};
 

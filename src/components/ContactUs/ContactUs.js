@@ -53,6 +53,30 @@ function ContactUs({ closeModal }) {
 		}
 	};
 
+	const phoneMaks = (e) => {
+		var text = e.target.value;
+
+		var result = [];
+		text = text.replace(/[^\d]/g, "");
+		while (text.length >= 6) {
+			result.push(text.substring(0, 3));
+			text = text.substring(3);
+		}
+		if (text.length > 0) result.push(text);
+		return result.join("-");
+
+		// if (x.length === 3) {
+		// 	x = x + "-";
+		// }
+
+		// if (x.length === 7) {
+		// 	x = x + "-";
+		// }
+		// if (x) x.match(/\d{3}(?=\d{2,3})|\d+/g).join("-");
+
+		setPhone(text);
+	};
+
 	const submitHandler = () => {
 		// validateEmail(email);
 		// validatePhone(phone);
@@ -88,7 +112,7 @@ function ContactUs({ closeModal }) {
 						</label>
 					)}
 					<input
-						type="tel"
+						type="text"
 						pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
 						className="input"
 						placeholder="Enter Phone Number"
@@ -117,7 +141,7 @@ function ContactUs({ closeModal }) {
 						</label>
 					)}
 					<textarea
-						className="input"
+						className="text-area"
 						placeholder="Enter your Message"
 						maxlength="240"
 						value={message}
