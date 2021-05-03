@@ -1,3 +1,18 @@
+.model-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	right: auto;
+	bottom: auto;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	padding: 0px;
+	border-radius: 0px;
+	width: 710px;
+	min-height: 641px;
+	max-height: 100%;
+}
+
 .form-container {
 	position: relative;
 	display: flex;
@@ -39,7 +54,7 @@
 .label {
 	position: absolute;
 	top: 5px;
-	left: 18px;
+	left: 17px;
 	font-size: 12px;
 	color: #919191;
 }
@@ -65,6 +80,8 @@
 	font-family: Arial, Helvetica, sans-serif;
 	background-color: white;
 	border: 1px solid #edeeef;
+
+	padding-top: 0.4rem;
 	padding-left: 1rem;
 	padding-right: 1rem;
 	margin-bottom: 1rem;
@@ -174,12 +191,16 @@
 }
 
 @media (max-width: 768px) {
+	.model-container {
+		width: 360px;
+		max-width: 100%;
+		min-height: 100%;
+	}
+
 	.sub-wrapper {
 		border: hidden;
 		padding-left: 1rem;
 		padding-right: 1rem;
-		/* padding-bottom: 1.5rem; */
-		/* padding-top: 1.5rem; */
 	}
 
 	.buttons {
@@ -195,7 +216,7 @@
 	.header {
 		background-color: white;
 		border-bottom: 2px solid #edeeef;
-		margin-bottom: 1rem;
+		/* margin-bottom: 1rem; */
 		padding: 0;
 		font-size: 20px;
 		font-weight: 600;
@@ -207,6 +228,8 @@
 		width: 330px;
 		height: 56px;
 		padding: 0;
+		padding-top: 0.4rem;
+
 		padding-left: 1rem;
 		padding-right: 1rem;
 		margin-bottom: 1rem;
